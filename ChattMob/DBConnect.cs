@@ -174,7 +174,32 @@ namespace ChattMob
 
         public void Restore()
         {
-            
+            try
+            {
+                string path;
+                path = "C:\\MySqlBackup.sql";
+                StreamReader file = new StreamReader(path);
+                string input = file.ReadToEnd();
+                file.Close();
+
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "mysql";
+                psi.RedirectStandardInput = true;
+                psi.RedirectStandardOutput = false;
+                psi.Arguments = string.Format(@"-u{0} -p{1} -h{2} {3}", uid, password, server, database);
+                psi.UseShellExecute = false;
+
+                Process process = Process.Start(psi);
+                process.StandardInput.WriteLine(input);
+                process.StandardInput.Close();
+                process.WaitForExit();
+                process.Close();
+
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error, unable to Restore!");
+            }
         }
 
         public List <string> [] Select()
