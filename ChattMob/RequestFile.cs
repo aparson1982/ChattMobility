@@ -47,9 +47,9 @@ namespace ChattMob
             }
             
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://problemdescription.000webhostapp.com/clearfile.php");
+         /*   HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://problemdescription.000webhostapp.com/clearfile.php");
             request.Method = "GET";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();*/
             
         }
 

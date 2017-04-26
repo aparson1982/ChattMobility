@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.FetchJobs = new System.Windows.Forms.Button();
+            this.SearchBtn = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -46,20 +48,44 @@
             this.FetchJobs.UseVisualStyleBackColor = false;
             this.FetchJobs.Click += new System.EventHandler(this.FetchJobs_Click);
             // 
+            // SearchBtn
+            // 
+            this.SearchBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SearchBtn.Location = new System.Drawing.Point(385, 12);
+            this.SearchBtn.Name = "SearchBtn";
+            this.SearchBtn.Size = new System.Drawing.Size(141, 32);
+            this.SearchBtn.TabIndex = 2;
+            this.SearchBtn.Text = "Search";
+            this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(532, 18);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(162, 26);
+            this.searchBox.TabIndex = 3;
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 77);
+            this.textBox1.Location = new System.Drawing.Point(269, 86);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(806, 520);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.Size = new System.Drawing.Size(580, 239);
+            this.textBox1.TabIndex = 4;
             // 
-            // Form1
+            // CMServiceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 680);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.FetchJobs);
             this.Name = "CMServiceManager";
             this.Text = "CMServiceManager";
@@ -71,6 +97,8 @@
         #endregion
 
         private System.Windows.Forms.Button FetchJobs;
+        private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

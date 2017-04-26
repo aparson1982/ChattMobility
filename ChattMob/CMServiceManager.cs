@@ -13,24 +13,30 @@ namespace ChattMob
 {
     public partial class CMServiceManager : Form
     {
-        DBConnect Connect = new DBConnect();
+        
         public CMServiceManager()
         {
             InitializeComponent();
         }
-       
-        RequestFile RequestNewJobs = new RequestFile();
+
+        readonly DBConnect _connect = new DBConnect();
+        readonly RequestFile _requestNewJobs = new RequestFile();
 
         private void FetchJobs_Click(object sender, EventArgs e)
         {
             
             
-            RequestNewJobs.RequestFromWeb();
+            _requestNewJobs.RequestFromWeb();
 
-            Connect.OpenConnection();
+            //_connect.OpenConnection();
 
+           _connect.InsertFromFile();
 
         }
 
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
