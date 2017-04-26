@@ -61,7 +61,6 @@ namespace ChattMob
             try
             {
                 connection.Close();
-                MessageBox.Show("Successfully Closed Connection");
                 return true;
             }
             catch (MySqlException ex)
@@ -74,17 +73,40 @@ namespace ChattMob
 
         public void Insert()
         {
-            
+            string query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES('TestFirst', 'TestLast', 'tftl@gmail.com', '4236371925')";
+
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
         }
 
         public void Update()
         {
-            
+            string query = "UPDATE customer_table SET FIRST_NAME='ChangeFirst', LAST_NAME='ChangeLast', EMAIL='ChangeEmail', PHONE='5555555555' WHERE FIRST_NAME='TestFirst'";
+
+            if (this.OpenConnection()==true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
+
         }
 
         public void Delete()
         {
-            
+            string query = "DELETE FROM customer_table WHERE FIRST_NAME='ChangeFirst'";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseConnection();
+            }
         }
 
         //public List <string> [] Select()
@@ -103,6 +125,11 @@ namespace ChattMob
         }
 
         public void Restore()
+        {
+            
+        }
+
+        public List <string> [] Select()
         {
             
         }
