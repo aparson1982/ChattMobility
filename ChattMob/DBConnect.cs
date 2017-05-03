@@ -10,13 +10,14 @@ using MySql.Data.MySqlClient;
 
 namespace ChattMob
 {
-    class DBConnect
+    internal class DBConnect
     {
         private MySqlConnection connection;
         private string server;
         private string database;
         private string uid;
         private string password;
+        private List<object> list = new List<object>();
 
         public DBConnect()
         {
@@ -28,7 +29,7 @@ namespace ChattMob
             server = "localhost";
             database = "chattmob";
             uid = "root";
-            password = "";
+            password = "T0mgr33n";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
                                "PASSWORD=" + password + ";";
@@ -50,6 +51,7 @@ namespace ChattMob
                     case 0:
                         MessageBox.Show("Cannot connect to server.  Contact Adam Parson");
                         break;
+
                     case 1045:
                         MessageBox.Show("Invalid username/password, please try again");
                         break;
@@ -70,29 +72,47 @@ namespace ChattMob
                 MessageBox.Show(ex.Message);
                 return true;
             }
-        
         }
 
         public void Insert()
         {
-            string query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES('TestFirst', 'TestLast', 'tftl@gmail.com', '4236371925')";
+            string line;
+            string query = null;
+            using (StreamReader file = new StreamReader(@"C:\Users\Robert\Music\test.txt"))
+            {
+                while ((line = file.ReadLine()) != null)
+                {
+                    char[] delimiters = new char[] { '\t' };
+                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var part in parts)
+                    {
+                        list.Add(part);
+                    }
+                }
+            }
+
+            // query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED) VALUES(@first, @last, @email, @phone, @date)";
 
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
+                foreach (List<object> sub in list)
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
                 this.CloseConnection();
             }
         }
 
         public void InsertFromFile()
         {
-           // string query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES('TestFirst', 'TestLast', 'tftl@gmail.com', '4236371925')";
+            // string query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES('TestFirst', 'TestLast', 'tftl@gmail.com', '4236371925')";
 
             string query = @"LOAD DATA LOCAL INFILE '/Users/Robert/Desktop/Chatt Mobility/Download Here/testdelete.txt' INTO TABLE customer_table " +
                            @"FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' " +
                            @"(FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED) SET CUSTOMER_ID = NULL;";
-             
+
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -105,7 +125,7 @@ namespace ChattMob
         {
             string query = "UPDATE customer_table SET FIRST_NAME='ChangeFirst', LAST_NAME='ChangeLast', EMAIL='ChangeEmail', PHONE='5555555555' WHERE FIRST_NAME='TestFirst'";
 
-            if (this.OpenConnection()==true)
+            if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.CommandText = query;
@@ -113,7 +133,6 @@ namespace ChattMob
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
-
         }
 
         public void Delete()
@@ -127,13 +146,12 @@ namespace ChattMob
             }
         }
 
-        
         public int Count()
         {
             string query = "SELECT Count(*) FROM customer_table";
             int Count = -1;
 
-            if (this.OpenConnection()==true)
+            if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 Count = int.Parse(cmd.ExecuteScalar() + "");
@@ -210,7 +228,6 @@ namespace ChattMob
                 process.StandardInput.Close();
                 process.WaitForExit();
                 process.Close();
-
             }
             catch (IOException ex)
             {
@@ -218,7 +235,7 @@ namespace ChattMob
             }
         }
 
-        public List <string> [] Select()
+        public List<string>[] Select()
         {
             string query = "SELECT * FROM customer_table";
             List<string>[] list = new List<string>[6];
@@ -242,7 +259,6 @@ namespace ChattMob
                     list[3].Add(dataReader["EMAIL"] + "");
                     list[4].Add(dataReader["PHONE"] + "");
                     list[5].Add(dataReader["DATE_CREATED"] + "");
-
                 }
                 dataReader.Close();
                 this.CloseConnection();
@@ -253,6 +269,5 @@ namespace ChattMob
                 return list;
             }
         }
-
     }
 }

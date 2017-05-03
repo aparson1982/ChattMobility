@@ -9,20 +9,31 @@ namespace ChattMob
 {
     public class RequestParser
     {
-        public static string GetCurrentDirectory()
+        internal class TextFileParser
         {
-            string startupPath = System.AppDomain.CurrentDomain.BaseDirectory;
-            var pathItems = startupPath.Split(Path.DirectorySeparatorChar);
-            string projectPath = String.Join(Path.DirectorySeparatorChar.ToString(), (pathItems.Length - 3));
-            
-            return projectPath;
-        }
+            private List<object> list = new List<object>();
 
-        public static string GetCurrentWorkingDirectory()
-        {
-           
-            string fileName = String.Format(@"{0}\NewJobs\testdelete.txt", Environment.CurrentDirectory);
-            return fileName;
+            public void TxtParser()
+            {
+                string line;
+                using (StreamReader file = new StreamReader(@"C:\Users\Robert\Music\test.txt"))
+                {
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        char[] delimiters = new char[] { '\t' };
+                        string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (var part in parts)
+                        {
+                            list.Add(part);
+                        }
+                    }
+                    foreach (var item in list)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    file.Close();
+                }
+            }
         }
     }
 }
