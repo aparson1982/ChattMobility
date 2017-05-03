@@ -20,10 +20,11 @@ namespace ChattMob
 
         private readonly DBConnect _connect = new DBConnect();
         private readonly RequestFile _requestNewJobs = new RequestFile();
+        private readonly RequestParser _requestParser = new RequestParser();
 
         private void FetchJobs_Click(object sender, EventArgs e)
         {
-            _requestNewJobs.RequestFromWeb();
+            //_requestNewJobs.RequestFromWeb();
 
             //_connect.OpenConnection();
 

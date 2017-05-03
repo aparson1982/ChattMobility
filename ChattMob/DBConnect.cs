@@ -74,36 +74,53 @@ namespace ChattMob
             }
         }
 
+        #region Insert Method
+
         public void Insert()
         {
             string line;
             string query = null;
             using (StreamReader file = new StreamReader(@"C:\Users\Robert\Music\test.txt"))
             {
-                while ((line = file.ReadLine()) != null)
+                string firstName = null;
+                string lastName = null;
+                string email = null;
+                string phone = null;
+                string date = null;
+
+                if (this.OpenConnection() == true)
                 {
-                    char[] delimiters = new char[] { '\t' };
-                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var part in parts)
+                    while ((line = file.ReadLine()) != null)
                     {
-                        list.Add(part);
+                        char[] delimiters = new char[] { '\t' };
+                        string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                        if (parts.Length > 0)
+                        {
+                            for (int i = 0; i < parts.Length - 4; i++)
+                            {
+                                // list.Add(part);
+                                firstName = parts[i];
+                                lastName = parts[i + 1];
+                                email = parts[i + 2];
+                                phone = parts[i + 3];
+                                date = parts[i + 4];
+                            }
+
+                            query =
+                                "INSERT INTO chattmob.customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED) VALUES('" +
+                                firstName + "', '" + lastName + "', '" + email + "', '" + phone + "', '" + date + "');";
+
+                            MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    this.CloseConnection();
                 }
-            }
-
-            // query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED) VALUES(@first, @last, @email, @phone, @date)";
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                foreach (List<object> sub in list)
-                {
-                    cmd.ExecuteNonQuery();
-                }
-
-                this.CloseConnection();
             }
         }
+
+        #endregion Insert Method
 
         public void InsertFromFile()
         {
