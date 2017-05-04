@@ -33,7 +33,6 @@ namespace ChattMob
                     }
                 }
             }
-            
         }*/
 
         public async void RequestFromWeb()
@@ -45,14 +44,10 @@ namespace ChattMob
             {
                 await wc.DownloadFileTaskAsync(new Uri("http://problemdescription.000webhostapp.com/testdelete.txt"), @"C:\Users\Robert\Desktop\Chatt Mobility\Download Here\testdelete.txt");  //directory needs to be fixed
             }
-            
 
-         /*   HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://problemdescription.000webhostapp.com/clearfile.php");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://problemdescription.000webhostapp.com/clearfile.php");
             request.Method = "GET";
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();*/
-            
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
         }
-
-
     }
 }

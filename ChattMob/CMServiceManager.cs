@@ -24,7 +24,7 @@ namespace ChattMob
 
         private void FetchJobs_Click(object sender, EventArgs e)
         {
-            //_requestNewJobs.RequestFromWeb();
+            _requestNewJobs.RequestFromWeb();
 
             //_connect.OpenConnection();
 
