@@ -79,52 +79,62 @@ namespace ChattMob
 
         public void Insert()
         {
-            string line;
-            string query = null;
-            using (StreamReader file = new StreamReader(@"C:\Users\Robert\Desktop\Chatt Mobility\Download Here\testdelete.txt"))
-            {
-                string firstName = null;
-                string lastName = null;
-                string email = null;
-                string phone = null;
-                string date = null;
-                string product = null;
-                string manufacturer = null;
-                string description = null;
-
-                if (this.OpenConnection() == true)
+            for (int j = 0; j < 20; j++)
+                try
                 {
-                    while ((line = file.ReadLine()) != null)
+                    string line;
+                    string query = null;
+                    using (StreamReader file = new StreamReader(@"C:\Users\Robert\Desktop\Chatt Mobility\Download Here\testdelete.txt"))
                     {
-                        char[] delimiters = new char[] { '\t' };
-                        string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-                        if (parts.Length > 0)
+                        string firstName = null;
+                        string lastName = null;
+                        string email = null;
+                        string phone = null;
+                        string date = null;
+                        string product = null;
+                        string manufacturer = null;
+                        string description = null;
+
+                        if (this.OpenConnection() == true)
                         {
-                            for (int i = 0; i < parts.Length - 7; i++)
+                            while ((line = file.ReadLine()) != null)
                             {
-                                // list.Add(part);
-                                firstName = Regex.Replace(parts[i], @"[^\w\s]", "");
-                                lastName = Regex.Replace(parts[i + 1], @"[^\w\s]", ""); ;
-                                email = Regex.Replace(parts[i + 2], @"[^\w\s.@-_]", ""); ;
-                                phone = Regex.Replace(parts[i + 3], @"[^\w\s-]", "");
-                                date = parts[i + 4];
-                                product = Regex.Replace(parts[i + 5], @"[^\w\s]", "");
-                                manufacturer = Regex.Replace(parts[i + 6], @"[^\w\s]", "");
-                                description = Regex.Replace(parts[i + 7], @"[^\w\s,-.?!]", "");
+                                char[] delimiters = new char[] { '\t' };
+                                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                                if (parts.Length > 0)
+                                {
+                                    for (int i = 0; i < parts.Length - 7; i++)
+                                    {
+                                        // list.Add(part);
+                                        firstName = Regex.Replace(parts[i], @"[^\w\s]", "");
+                                        lastName = Regex.Replace(parts[i + 1], @"[^\w\s]", ""); ;
+                                        email = Regex.Replace(parts[i + 2], @"[^\w\s.@-_]", ""); ;
+                                        phone = Regex.Replace(parts[i + 3], @"[^\w\s-]", "");
+                                        date = parts[i + 4];
+                                        product = Regex.Replace(parts[i + 5], @"[^\w\s]", "");
+                                        manufacturer = Regex.Replace(parts[i + 6], @"[^\w\s]", "");
+                                        description = Regex.Replace(parts[i + 7], @"[^\w\s,-.?!]", "");
+                                    }
+
+                                    query =
+                                        "INSERT INTO chattmob.customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED, PRODUCT_TYPE, MANUFACTURER, DESCRIPTION) VALUES('" +
+                                        firstName + "', '" + lastName + "', '" + email + "', '" + phone + "', '" + date + "', '" + product + "', '" + manufacturer + "', '" + description + "');";
+
+                                    MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                                    cmd.ExecuteNonQuery();
+                                }
                             }
-
-                            query =
-                                "INSERT INTO chattmob.customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED, PRODUCT_TYPE, MANUFACTURER, DESCRIPTION) VALUES('" +
-                                firstName + "', '" + lastName + "', '" + email + "', '" + phone + "', '" + date + "', '" + product + "', '" + manufacturer + "', '" + description + "');";
-
-                            MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
                         }
                     }
-                    this.CloseConnection();
+
+                    j = 999;
                 }
-            }
+                catch
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
         }
 
         #endregion Insert Method
