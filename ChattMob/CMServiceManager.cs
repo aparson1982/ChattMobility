@@ -30,9 +30,5 @@ namespace ChattMob
 
             _connect.Insert();
         }
-
-        private void SearchBtn_Click(object sender, EventArgs e)
-        {
-        }
     }
 }
