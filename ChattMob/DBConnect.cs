@@ -140,14 +140,6 @@ namespace ChattMob
 
         #endregion Insert Method
 
-        #region LoadDataTable
-
-        public void LoadDataTable()
-        {
-        }
-
-        #endregion LoadDataTable
-
         public void Update()
         {
             string query = "UPDATE customer_table SET FIRST_NAME='ChangeFirst', LAST_NAME='ChangeLast', EMAIL='ChangeEmail', PHONE='5555555555' WHERE FIRST_NAME='TestFirst'";
