@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace ChattMob
             }
         }
 
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {
@@ -139,21 +140,13 @@ namespace ChattMob
 
         #endregion Insert Method
 
-        public void InsertFromFile()
+        #region LoadDataTable
+
+        public void LoadDataTable()
         {
-            // string query = "INSERT INTO customer_table (FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES('TestFirst', 'TestLast', 'tftl@gmail.com', '4236371925')";
-
-            string query = @"LOAD DATA LOCAL INFILE '/Users/Robert/Desktop/Chatt Mobility/Download Here/testdelete.txt' INTO TABLE customer_table " +
-                           @"FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' " +
-                           @"(FIRST_NAME, LAST_NAME, EMAIL, PHONE, DATE_CREATED) SET CUSTOMER_ID = NULL;";
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                this.CloseConnection();
-            }
         }
+
+        #endregion LoadDataTable
 
         public void Update()
         {

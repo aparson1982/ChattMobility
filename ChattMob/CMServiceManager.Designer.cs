@@ -31,17 +31,21 @@
             this.FetchJobs = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.SearchBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // FetchJobs
             // 
             this.FetchJobs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(122)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
-            this.FetchJobs.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.FetchJobs.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.FetchJobs.FlatAppearance.BorderSize = 5;
             this.FetchJobs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FetchJobs.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FetchJobs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.FetchJobs.Location = new System.Drawing.Point(12, 18);
+            this.FetchJobs.Location = new System.Drawing.Point(7, 5);
             this.FetchJobs.Name = "FetchJobs";
             this.FetchJobs.Size = new System.Drawing.Size(119, 38);
             this.FetchJobs.TabIndex = 0;
@@ -71,6 +75,26 @@
             this.SearchBtn.TabIndex = 4;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = false;
+            this.SearchBtn.Click += new System.EventHandler(this.SearchBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.FetchJobs);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(284, 52);
+            this.panel1.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(20, 175);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(844, 318);
+            this.dataGridView1.TabIndex = 6;
             // 
             // CMServiceManager
             // 
@@ -78,14 +102,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(1024, 680);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.searchBox);
-            this.Controls.Add(this.FetchJobs);
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CMServiceManager";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "CMServiceManager";
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +122,8 @@
         private System.Windows.Forms.Button FetchJobs;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button SearchBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
