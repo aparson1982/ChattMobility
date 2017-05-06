@@ -28,6 +28,17 @@ namespace ChattMob
         private readonly RequestFile _requestNewJobs = new RequestFile();
         private readonly RequestParser _requestParser = new RequestParser();
 
+        #region Textbox Strings
+
+        private string firstName = "";
+        private string lastName = "";
+        private string email = "";
+        private string phone = "";
+        private string product = "";
+        private string manufacturer = "";
+
+        #endregion Textbox Strings
+
         private void FetchJobs_Click(object sender, EventArgs e)
         {
             _requestNewJobs.RequestFromWeb();
@@ -76,50 +87,51 @@ namespace ChattMob
 
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("FIRST_NAME LIKE '%{0}%'", FirstNameTextBox.Text);
-            dataGridView1.DataSource = DV;
+            firstName = FirstNameTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void LastNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("LAST_NAME LIKE '%{0}%'", LastNameTextBox.Text);
-            dataGridView1.DataSource = DV;
+            lastName = LastNameTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("EMAIL LIKE '%{0}%'", emailTextBox.Text);
-            dataGridView1.DataSource = DV;
+            email = emailTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("PHONE LIKE '%{0}%'", phoneTextBox.Text);
-            dataGridView1.DataSource = DV;
+            phone = phoneTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void productTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("PRODUCT LIKE '%{0}%'", productTextBox.Text);
-            dataGridView1.DataSource = DV;
+            product = productTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void manufacturerTextBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
-            DV.RowFilter = string.Format("MANUFACTURER LIKE '%{0}%'", manufacturerTextBox.Text);
-            dataGridView1.DataSource = DV;
+            manufacturer = manufacturerTextBox.Text;
+            AdvancedSearchBox();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("DESCRIPTION LIKE '%{0}%'", textBox1.Text);
+            dataGridView1.DataSource = DV;
+        }
+
+        private void AdvancedSearchBox()
+        {
+            DataView DV = new DataView(dbdataset);
+            DV.RowFilter = string.Format("FIRST_NAME LIKE '%" + firstName + "%' AND " + "LAST_NAME LIKE '%" + lastName + "%' AND " + "EMAIL LIKE '%" + email + "%' AND " + "PHONE LIKE '%" + phone + "%' AND " + "PRODUCT_TYPE LIKE '%" + product + "%' AND " + "MANUFACTURER LIKE '%" + manufacturer + "%'");
             dataGridView1.DataSource = DV;
         }
     }
