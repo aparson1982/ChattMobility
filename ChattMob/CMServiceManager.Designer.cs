@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -62,7 +66,34 @@
             this.fromDatePicker = new System.Windows.Forms.DateTimePicker();
             this.Views = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.customerTab = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label29 = new System.Windows.Forms.Label();
+            this.ZipCI = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.CityCI = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.AddressCI = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.PhoneCI = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.LastnameCI = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.FirstNameCI = new System.Windows.Forms.TextBox();
+            this.EmailCI = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.DateCI = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.DescriptionCI = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.ManufacturerCI = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.ProductCI = new System.Windows.Forms.TextBox();
+            this.dataGridViewCI = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.searchTabs.SuspendLayout();
@@ -71,6 +102,13 @@
             this.tabPage1.SuspendLayout();
             this.Views.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCI)).BeginInit();
             this.SuspendLayout();
             // 
             // FetchJobs
@@ -114,50 +152,52 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dataGridView1.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridView1.Size = new System.Drawing.Size(1020, 429);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(441, 498);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // searchTabs
             // 
@@ -165,7 +205,7 @@
             this.searchTabs.Controls.Add(this.AdvancedSearch);
             this.searchTabs.Controls.Add(this.tabPage1);
             this.searchTabs.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTabs.Location = new System.Drawing.Point(637, 12);
+            this.searchTabs.Location = new System.Drawing.Point(1053, 12);
             this.searchTabs.Name = "searchTabs";
             this.searchTabs.SelectedIndex = 0;
             this.searchTabs.Size = new System.Drawing.Size(461, 139);
@@ -205,8 +245,10 @@
             this.AdvancedSearch.Controls.Add(this.phoneTextBox);
             this.AdvancedSearch.Controls.Add(this.label3);
             this.AdvancedSearch.Controls.Add(this.emailTextBox);
+            this.AdvancedSearch.Controls.Add(this.label13);
             this.AdvancedSearch.Controls.Add(this.label2);
             this.AdvancedSearch.Controls.Add(this.LastNameTextBox);
+            this.AdvancedSearch.Controls.Add(this.label12);
             this.AdvancedSearch.Controls.Add(this.label1);
             this.AdvancedSearch.Controls.Add(this.FirstNameTextBox);
             this.AdvancedSearch.Location = new System.Drawing.Point(4, 25);
@@ -375,6 +417,7 @@
             this.toDatePicker.Name = "toDatePicker";
             this.toDatePicker.Size = new System.Drawing.Size(96, 21);
             this.toDatePicker.TabIndex = 18;
+            this.toDatePicker.ValueChanged += new System.EventHandler(this.toDatePicker_ValueChanged);
             // 
             // label10
             // 
@@ -438,16 +481,17 @@
             this.fromDatePicker.Name = "fromDatePicker";
             this.fromDatePicker.Size = new System.Drawing.Size(96, 21);
             this.fromDatePicker.TabIndex = 0;
+            this.fromDatePicker.ValueChanged += new System.EventHandler(this.fromDatePicker_ValueChanged);
             // 
             // Views
             // 
             this.Views.Controls.Add(this.tabPage2);
-            this.Views.Controls.Add(this.customerTab);
             this.Views.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Views.Location = new System.Drawing.Point(58, 175);
+            this.Views.Location = new System.Drawing.Point(1053, 180);
+            this.Views.Multiline = true;
             this.Views.Name = "Views";
             this.Views.SelectedIndex = 0;
-            this.Views.Size = new System.Drawing.Size(1040, 470);
+            this.Views.Size = new System.Drawing.Size(461, 539);
             this.Views.TabIndex = 8;
             // 
             // tabPage2
@@ -458,26 +502,383 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1032, 441);
+            this.tabPage2.Size = new System.Drawing.Size(453, 510);
             this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "dataGridViewTab";
+            this.tabPage2.Text = "Customer List";
             // 
-            // customerTab
+            // tabControl1
             // 
-            this.customerTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.customerTab.Location = new System.Drawing.Point(4, 25);
-            this.customerTab.Name = "customerTab";
-            this.customerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.customerTab.Size = new System.Drawing.Size(1032, 441);
-            this.customerTab.TabIndex = 1;
-            this.customerTab.Text = "Customer View";
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(12, 99);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(993, 620);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.tabPage3.Controls.Add(this.splitContainer1);
+            this.tabPage3.ForeColor = System.Drawing.Color.DarkGray;
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(985, 591);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Customer Information";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Silver;
+            this.label12.Location = new System.Drawing.Point(6, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 16);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "First Name";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Silver;
+            this.label13.Location = new System.Drawing.Point(6, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 16);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Last Name";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.splitContainer1.Panel1.Controls.Add(this.EmailCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label29);
+            this.splitContainer1.Panel1.Controls.Add(this.ZipCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label30);
+            this.splitContainer1.Panel1.Controls.Add(this.CityCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label31);
+            this.splitContainer1.Panel1.Controls.Add(this.AddressCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label32);
+            this.splitContainer1.Panel1.Controls.Add(this.PhoneCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label33);
+            this.splitContainer1.Panel1.Controls.Add(this.label34);
+            this.splitContainer1.Panel1.Controls.Add(this.LastnameCI);
+            this.splitContainer1.Panel1.Controls.Add(this.label35);
+            this.splitContainer1.Panel1.Controls.Add(this.FirstNameCI);
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.splitContainer1.Panel2.Controls.Add(this.label25);
+            this.splitContainer1.Panel2.Controls.Add(this.DateCI);
+            this.splitContainer1.Panel2.Controls.Add(this.label26);
+            this.splitContainer1.Panel2.Controls.Add(this.DescriptionCI);
+            this.splitContainer1.Panel2.Controls.Add(this.label27);
+            this.splitContainer1.Panel2.Controls.Add(this.ManufacturerCI);
+            this.splitContainer1.Panel2.Controls.Add(this.label28);
+            this.splitContainer1.Panel2.Controls.Add(this.ProductCI);
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridViewCI);
+            this.splitContainer1.Size = new System.Drawing.Size(979, 585);
+            this.splitContainer1.SplitterDistance = 167;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Silver;
+            this.label29.Location = new System.Drawing.Point(554, 100);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(30, 16);
+            this.label29.TabIndex = 62;
+            this.label29.Text = "Zip";
+            // 
+            // ZipCI
+            // 
+            this.ZipCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ZipCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ZipCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZipCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ZipCI.Location = new System.Drawing.Point(590, 95);
+            this.ZipCI.Name = "ZipCI";
+            this.ZipCI.Size = new System.Drawing.Size(152, 26);
+            this.ZipCI.TabIndex = 61;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.ForeColor = System.Drawing.Color.Silver;
+            this.label30.Location = new System.Drawing.Point(62, 100);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(37, 16);
+            this.label30.TabIndex = 60;
+            this.label30.Text = "City";
+            // 
+            // CityCI
+            // 
+            this.CityCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CityCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CityCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CityCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CityCI.Location = new System.Drawing.Point(105, 95);
+            this.CityCI.Name = "CityCI";
+            this.CityCI.Size = new System.Drawing.Size(372, 26);
+            this.CityCI.TabIndex = 59;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.ForeColor = System.Drawing.Color.Silver;
+            this.label31.Location = new System.Drawing.Point(32, 64);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(67, 16);
+            this.label31.TabIndex = 58;
+            this.label31.Text = "Address";
+            // 
+            // AddressCI
+            // 
+            this.AddressCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AddressCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AddressCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddressCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AddressCI.Location = new System.Drawing.Point(105, 59);
+            this.AddressCI.Name = "AddressCI";
+            this.AddressCI.Size = new System.Drawing.Size(372, 26);
+            this.AddressCI.TabIndex = 57;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.ForeColor = System.Drawing.Color.Silver;
+            this.label32.Location = new System.Drawing.Point(748, 64);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(53, 16);
+            this.label32.TabIndex = 56;
+            this.label32.Text = "Phone";
+            // 
+            // PhoneCI
+            // 
+            this.PhoneCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.PhoneCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PhoneCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PhoneCI.Location = new System.Drawing.Point(807, 59);
+            this.PhoneCI.Name = "PhoneCI";
+            this.PhoneCI.Size = new System.Drawing.Size(154, 26);
+            this.PhoneCI.TabIndex = 55;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.Silver;
+            this.label33.Location = new System.Drawing.Point(536, 64);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(48, 16);
+            this.label33.TabIndex = 54;
+            this.label33.Text = "Email";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.ForeColor = System.Drawing.Color.Silver;
+            this.label34.Location = new System.Drawing.Point(499, 28);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(85, 16);
+            this.label34.TabIndex = 53;
+            this.label34.Text = "Last Name";
+            // 
+            // LastnameCI
+            // 
+            this.LastnameCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LastnameCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LastnameCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastnameCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LastnameCI.Location = new System.Drawing.Point(590, 23);
+            this.LastnameCI.Name = "LastnameCI";
+            this.LastnameCI.Size = new System.Drawing.Size(371, 26);
+            this.LastnameCI.TabIndex = 52;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.ForeColor = System.Drawing.Color.Silver;
+            this.label35.Location = new System.Drawing.Point(12, 28);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(87, 16);
+            this.label35.TabIndex = 51;
+            this.label35.Text = "First Name";
+            // 
+            // FirstNameCI
+            // 
+            this.FirstNameCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.FirstNameCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FirstNameCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstNameCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.FirstNameCI.Location = new System.Drawing.Point(105, 23);
+            this.FirstNameCI.Name = "FirstNameCI";
+            this.FirstNameCI.Size = new System.Drawing.Size(372, 26);
+            this.FirstNameCI.TabIndex = 50;
+            // 
+            // EmailCI
+            // 
+            this.EmailCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EmailCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EmailCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.EmailCI.Location = new System.Drawing.Point(590, 59);
+            this.EmailCI.Name = "EmailCI";
+            this.EmailCI.Size = new System.Drawing.Size(152, 26);
+            this.EmailCI.TabIndex = 63;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.ForeColor = System.Drawing.Color.Silver;
+            this.label25.Location = new System.Drawing.Point(708, 16);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(42, 16);
+            this.label25.TabIndex = 67;
+            this.label25.Text = "Date";
+            // 
+            // DateCI
+            // 
+            this.DateCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DateCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DateCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DateCI.Location = new System.Drawing.Point(768, 11);
+            this.DateCI.Name = "DateCI";
+            this.DateCI.Size = new System.Drawing.Size(201, 26);
+            this.DateCI.TabIndex = 66;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.ForeColor = System.Drawing.Color.Silver;
+            this.label26.Location = new System.Drawing.Point(10, 119);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(90, 16);
+            this.label26.TabIndex = 65;
+            this.label26.Text = "Description";
+            // 
+            // DescriptionCI
+            // 
+            this.DescriptionCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.DescriptionCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DescriptionCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescriptionCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DescriptionCI.Location = new System.Drawing.Point(113, 60);
+            this.DescriptionCI.Multiline = true;
+            this.DescriptionCI.Name = "DescriptionCI";
+            this.DescriptionCI.Size = new System.Drawing.Size(856, 133);
+            this.DescriptionCI.TabIndex = 64;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Silver;
+            this.label27.Location = new System.Drawing.Point(334, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(105, 16);
+            this.label27.TabIndex = 63;
+            this.label27.Text = "Manufacturer";
+            // 
+            // ManufacturerCI
+            // 
+            this.ManufacturerCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ManufacturerCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ManufacturerCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManufacturerCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ManufacturerCI.Location = new System.Drawing.Point(445, 11);
+            this.ManufacturerCI.Name = "ManufacturerCI";
+            this.ManufacturerCI.Size = new System.Drawing.Size(201, 26);
+            this.ManufacturerCI.TabIndex = 62;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.Silver;
+            this.label28.Location = new System.Drawing.Point(40, 16);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(64, 16);
+            this.label28.TabIndex = 61;
+            this.label28.Text = "Product";
+            // 
+            // ProductCI
+            // 
+            this.ProductCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ProductCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProductCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ProductCI.Location = new System.Drawing.Point(113, 11);
+            this.ProductCI.Name = "ProductCI";
+            this.ProductCI.Size = new System.Drawing.Size(201, 26);
+            this.ProductCI.TabIndex = 60;
+            // 
+            // dataGridViewCI
+            // 
+            this.dataGridViewCI.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            this.dataGridViewCI.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewCI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCI.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewCI.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.dataGridViewCI.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewCI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCI.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewCI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCI.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewCI.EnableHeadersVisualStyles = false;
+            this.dataGridViewCI.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridViewCI.Location = new System.Drawing.Point(113, 236);
+            this.dataGridViewCI.Name = "dataGridViewCI";
+            this.dataGridViewCI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCI.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewCI.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridViewCI.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dataGridViewCI.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridViewCI.Size = new System.Drawing.Size(856, 167);
+            this.dataGridViewCI.TabIndex = 59;
             // 
             // CMServiceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(1110, 680);
+            this.ClientSize = new System.Drawing.Size(1526, 731);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.searchTabs);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Views);
@@ -497,6 +898,15 @@
             this.tabPage1.PerformLayout();
             this.Views.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCI)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -532,7 +942,34 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabControl Views;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage customerTab;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TextBox EmailCI;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox ZipCI;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox CityCI;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox AddressCI;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox PhoneCI;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox LastnameCI;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox FirstNameCI;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox DateCI;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox DescriptionCI;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox ManufacturerCI;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox ProductCI;
+        private System.Windows.Forms.DataGridView dataGridViewCI;
     }
 }
 

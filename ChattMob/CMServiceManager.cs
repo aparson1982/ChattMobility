@@ -36,6 +36,10 @@ namespace ChattMob
         private string phone = "";
         private string product = "";
         private string manufacturer = "";
+        private DateTime fromDate;
+        private DateTime toDate;
+        private string toDates = "";
+        private string fromDates = "";
 
         #endregion Textbox Strings
 
@@ -58,7 +62,7 @@ namespace ChattMob
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
                                "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
-            cmdDataBase = new MySqlCommand("SELECT * FROM chattmob.customer_table;", connection);
+            cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", connection);
 
             try
             {
@@ -69,6 +73,35 @@ namespace ChattMob
                 BindingSource bSource = new BindingSource();
                 bSource.DataSource = dbdataset;
                 dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void loadCustomerTable()
+        {
+            string server = "localhost";
+            string database = "chattmob";
+            string uid = "root";
+            string password = "T0mgr33n";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
+                               "PASSWORD=" + password + ";";
+            connection = new MySqlConnection(connectionString);
+            cmdDataBase = new MySqlCommand("SELECT PRODUCT_TYPE, MANUFACTURER, DESCRIPTION, DATE_CREATED FROM chattmob.customer_table WHERE FIRST_NAME='" + FirstNameCI.Text + "' and LAST_NAME='" + LastnameCI + "' and PHONE='" + PhoneCI + "';", connection);
+
+            try
+            {
+                sda = new MySqlDataAdapter();
+                sda.SelectCommand = cmdDataBase;
+                dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dataGridViewCI.DataSource = bSource;
                 sda.Update(dbdataset);
             }
             catch (Exception ex)
@@ -133,6 +166,53 @@ namespace ChattMob
             DataView DV = new DataView(dbdataset);
             DV.RowFilter = string.Format("FIRST_NAME LIKE '%" + firstName + "%' AND " + "LAST_NAME LIKE '%" + lastName + "%' AND " + "EMAIL LIKE '%" + email + "%' AND " + "PHONE LIKE '%" + phone + "%' AND " + "PRODUCT_TYPE LIKE '%" + product + "%' AND " + "MANUFACTURER LIKE '%" + manufacturer + "%'");
             dataGridView1.DataSource = DV;
+        }
+
+        private void fromDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            fromDate = this.fromDatePicker.Value.Date;
+            fromDates = fromDate.ToString("yyyy-MM-dd");
+            DateSearch();
+        }
+
+        private void toDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            toDate = this.toDatePicker.Value.Date;
+            toDates = toDate.ToString("yyyy-MM-dd");
+            DateSearch();
+        }
+
+        private void DateSearch()
+        {
+            DataView DV = new DataView(dbdataset);
+            DV.RowFilter = string.Format("SELECT * FROM chattmob.customer_table WHERE 'DATE_CREATED' BETWEEN '" + fromDates + "' AND '" + toDates + "';");
+            dataGridView1.DataSource = DV;
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void SelectedRows()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string lastName = dataGridView1.SelectedRows[0].Cells[0].Value + string.Empty;
+                string firstName = dataGridView1.SelectedRows[0].Cells[1].Value + string.Empty;
+                string emailtxt = dataGridView1.SelectedRows[0].Cells[2].Value + string.Empty;
+                string phonetxt = dataGridView1.SelectedRows[0].Cells[3].Value + string.Empty;
+
+                FirstNameCI.Text = firstName;
+                LastnameCI.Text = lastName;
+                EmailCI.Text = emailtxt;
+                PhoneCI.Text = phonetxt;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedRows();
+            loadCustomerTable();
         }
     }
 }
