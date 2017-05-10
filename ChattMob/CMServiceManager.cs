@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 
 namespace ChattMob
 {
@@ -18,6 +19,10 @@ namespace ChattMob
         {
             InitializeComponent();
             loadTable();
+
+            tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
+
+            //this.NativeTabControl2.AssignHandle(this.TabControl2.Handle);
         }
 
         private MySqlConnection connection;
@@ -91,7 +96,7 @@ namespace ChattMob
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
                                "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
-            cmdDataBase = new MySqlCommand("SELECT PRODUCT_TYPE, MANUFACTURER, DESCRIPTION, DATE_CREATED FROM chattmob.customer_table WHERE FIRST_NAME='" + FirstNameCI.Text + "' and LAST_NAME='" + LastnameCI + "' and PHONE='" + PhoneCI + "';", connection);
+            cmdDataBase = new MySqlCommand("SELECT PRODUCT_TYPE, MANUFACTURER, DESCRIPTION, DATE_CREATED FROM chattmob.customer_table WHERE FIRST_NAME='" + FirstNameCI.Text + "' or LAST_NAME='" + LastnameCI + "' or PHONE='" + PhoneCI + "';", connection);
 
             try
             {
@@ -209,10 +214,56 @@ namespace ChattMob
             }
         }
 
+        private void SelectedRowsCI()
+        {
+            if (dataGridViewCI.SelectedRows.Count > 0)
+            {
+                string product_type = dataGridViewCI.SelectedRows[0].Cells[0].Value + string.Empty;
+                string manufacturer_type = dataGridViewCI.SelectedRows[0].Cells[1].Value + string.Empty;
+                string description_type = dataGridViewCI.SelectedRows[0].Cells[2].Value + string.Empty;
+                string date_type = dataGridViewCI.SelectedRows[0].Cells[3].Value + string.Empty;
+
+                ProductCI.Text = product_type;
+                ManufacturerCI.Text = manufacturer_type;
+                DescriptionCI.Text = description_type;
+                DateCI.Text = date_type;
+            }
+        }
+
+        private void tabControl1_DrawItem(Object sender, DrawItemEventArgs e)
+        {
+            switch (e.Index)
+            {
+                case 0:
+                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(120, 47, 127)), e.Bounds);
+                    break;
+
+                case 1:
+                    e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(75, 75, 75)), e.Bounds);
+                    break;
+
+                default:
+                    break;
+            }
+            Rectangle paddedBounds = e.Bounds;
+            paddedBounds.Inflate(-3, -3);
+            e.Graphics.DrawString(tabControl1.TabPages[e.Index].Text, this.Font, SystemBrushes.HighlightText,
+                paddedBounds);
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectedRows();
             loadCustomerTable();
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridViewCI_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedRowsCI();
         }
     }
 }

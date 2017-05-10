@@ -52,8 +52,10 @@
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -68,9 +70,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.EmailCI = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.ZipCI = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@
             this.LastnameCI = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.FirstNameCI = new System.Windows.Forms.TextBox();
-            this.EmailCI = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.DateCI = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -346,6 +346,16 @@
             this.emailTextBox.TabIndex = 9;
             this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Silver;
+            this.label13.Location = new System.Drawing.Point(6, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 16);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Last Name";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -367,6 +377,16 @@
             this.LastNameTextBox.Size = new System.Drawing.Size(114, 22);
             this.LastNameTextBox.TabIndex = 7;
             this.LastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Silver;
+            this.label12.Location = new System.Drawing.Point(6, 14);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(87, 16);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "First Name";
             // 
             // label1
             // 
@@ -509,6 +529,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 99);
             this.tabControl1.Multiline = true;
@@ -528,26 +549,7 @@
             this.tabPage3.Size = new System.Drawing.Size(985, 591);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Customer Information";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Silver;
-            this.label12.Location = new System.Drawing.Point(6, 14);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(87, 16);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "First Name";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Silver;
-            this.label13.Location = new System.Drawing.Point(6, 46);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(85, 16);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Last Name";
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // splitContainer1
             // 
@@ -559,7 +561,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.splitContainer1.Panel1.Controls.Add(this.EmailCI);
             this.splitContainer1.Panel1.Controls.Add(this.label29);
             this.splitContainer1.Panel1.Controls.Add(this.ZipCI);
@@ -578,7 +580,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(35)))));
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.splitContainer1.Panel2.Controls.Add(this.label25);
             this.splitContainer1.Panel2.Controls.Add(this.DateCI);
             this.splitContainer1.Panel2.Controls.Add(this.label26);
@@ -591,6 +593,17 @@
             this.splitContainer1.Size = new System.Drawing.Size(979, 585);
             this.splitContainer1.SplitterDistance = 167;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // EmailCI
+            // 
+            this.EmailCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.EmailCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EmailCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.EmailCI.Location = new System.Drawing.Point(590, 59);
+            this.EmailCI.Name = "EmailCI";
+            this.EmailCI.Size = new System.Drawing.Size(152, 26);
+            this.EmailCI.TabIndex = 63;
             // 
             // label29
             // 
@@ -728,17 +741,6 @@
             this.FirstNameCI.Size = new System.Drawing.Size(372, 26);
             this.FirstNameCI.TabIndex = 50;
             // 
-            // EmailCI
-            // 
-            this.EmailCI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.EmailCI.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmailCI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailCI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.EmailCI.Location = new System.Drawing.Point(590, 59);
-            this.EmailCI.Name = "EmailCI";
-            this.EmailCI.Size = new System.Drawing.Size(152, 26);
-            this.EmailCI.TabIndex = 63;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -869,14 +871,16 @@
             this.dataGridViewCI.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridViewCI.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dataGridViewCI.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridViewCI.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCI.Size = new System.Drawing.Size(856, 167);
             this.dataGridViewCI.TabIndex = 59;
+            this.dataGridViewCI.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCI_CellContentClick);
             // 
             // CMServiceManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1526, 731);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.searchTabs);
