@@ -25,13 +25,11 @@ namespace ChattMob
             //this.NativeTabControl2.AssignHandle(this.TabControl2.Handle);
         }
 
-        private MySqlConnection connection;
-        private MySqlCommand cmdDataBase;
-        private MySqlDataAdapter sda;
-        private DataTable dbdataset;
+        private MySqlCommand _cmdDataBase;
+        private MySqlDataAdapter _sda;
+        private DataTable _dbdataset;
         private readonly DBConnect _connect = new DBConnect();
         private readonly RequestFile _requestNewJobs = new RequestFile();
-        private readonly RequestParser _requestParser = new RequestParser();
 
         #region Textbox Strings
 
@@ -59,18 +57,18 @@ namespace ChattMob
 
         private void loadTable()
         {
-            cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", _connect.Initialize());
+            _cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", _connect.Initialize());
 
             try
             {
-                sda = new MySqlDataAdapter();
-                sda.SelectCommand = cmdDataBase;
-                dbdataset = new DataTable();
-                sda.Fill(dbdataset);
+                _sda = new MySqlDataAdapter();
+                _sda.SelectCommand = _cmdDataBase;
+                _dbdataset = new DataTable();
+                _sda.Fill(_dbdataset);
                 BindingSource bSource = new BindingSource();
-                bSource.DataSource = dbdataset;
+                bSource.DataSource = _dbdataset;
                 dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
+                _sda.Update(_dbdataset);
             }
             catch (Exception ex)
             {
@@ -78,28 +76,20 @@ namespace ChattMob
             }
         }
 
-        private void loadCustomerTable()
+        private void LoadCustomerTable()
         {
-            string server = "localhost";
-            string database = "chattmob";
-            string uid = "root";
-            string password = "T0mgr33n";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
-                               "PASSWORD=" + password + ";";
-            connection = new MySqlConnection(connectionString);
-            cmdDataBase = new MySqlCommand("SELECT PRODUCT_TYPE, MANUFACTURER, DESCRIPTION, DATE_CREATED FROM chattmob.customer_table WHERE FIRST_NAME='" + FirstNameCI.Text + "' or LAST_NAME='" + LastnameCI + "' or PHONE='" + PhoneCI + "';", connection);
+            _cmdDataBase = new MySqlCommand("SELECT PRODUCT_TYPE, MANUFACTURER, DESCRIPTION, DATE_CREATED FROM chattmob.customer_table WHERE FIRST_NAME='" + FirstNameCI.Text + "' OR LAST_NAME='" + LastnameCI + "' OR PHONE='" + PhoneCI + "';", _connect.Initialize());
 
             try
             {
-                sda = new MySqlDataAdapter();
-                sda.SelectCommand = cmdDataBase;
-                dbdataset = new DataTable();
-                sda.Fill(dbdataset);
+                _sda = new MySqlDataAdapter();
+                _sda.SelectCommand = _cmdDataBase;
+                _dbdataset = new DataTable();
+                _sda.Fill(_dbdataset);
                 BindingSource bSource = new BindingSource();
-                bSource.DataSource = dbdataset;
+                bSource.DataSource = _dbdataset;
                 dataGridViewCI.DataSource = bSource;
-                sda.Update(dbdataset);
+                _sda.Update(_dbdataset);
             }
             catch (Exception ex)
             {
@@ -109,7 +99,7 @@ namespace ChattMob
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
+            DataView DV = new DataView(_dbdataset);
             DV.RowFilter = string.Format("LAST_NAME LIKE '%{0}%' OR FIRST_NAME LIKE '%{0}%' OR EMAIL LIKE '%{0}%' OR PHONE LIKE '%{0}%'", searchBox.Text);
             //DV.RowFilter = string.Format("SELECT customer_table.* FROM chattmob.customer_table JOIN( SELECT CUSTOMER_ID, IFNULL(FIRST_NAME, '')+IFNULL(LAST_NAME,'')+IFNULL(EMAIL,'')+IFNULL(PHONE,'') concatenated FROM chattmob.customer_table) AS T ON T.CUSTOMER_ID = customer_table.CUSTOMER_ID WHERE t.concatenated LIKE '%{0}%'", searchBox.Text);
             dataGridView1.DataSource = DV;
@@ -153,14 +143,14 @@ namespace ChattMob
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DataView DV = new DataView(dbdataset);
+            DataView DV = new DataView(_dbdataset);
             DV.RowFilter = string.Format("DESCRIPTION LIKE '%{0}%'", textBox1.Text);
             dataGridView1.DataSource = DV;
         }
 
         private void AdvancedSearchBox()
         {
-            DataView DV = new DataView(dbdataset);
+            DataView DV = new DataView(_dbdataset);
             DV.RowFilter = string.Format("FIRST_NAME LIKE '%" + firstName + "%' AND " + "LAST_NAME LIKE '%" + lastName + "%' AND " + "EMAIL LIKE '%" + email + "%' AND " + "PHONE LIKE '%" + phone + "%' AND " + "PRODUCT_TYPE LIKE '%" + product + "%' AND " + "MANUFACTURER LIKE '%" + manufacturer + "%'");
             dataGridView1.DataSource = DV;
         }
@@ -181,7 +171,7 @@ namespace ChattMob
 
         private void DateSearch()
         {
-            DataView DV = new DataView(dbdataset);
+            DataView DV = new DataView(_dbdataset);
             DV.RowFilter = string.Format("SELECT * FROM chattmob.customer_table WHERE 'DATE_CREATED' BETWEEN '" + fromDates + "' AND '" + toDates + "';");
             dataGridView1.DataSource = DV;
         }
@@ -246,7 +236,7 @@ namespace ChattMob
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectedRows();
-            loadCustomerTable();
+            LoadCustomerTable();
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
