@@ -59,15 +59,7 @@ namespace ChattMob
 
         private void loadTable()
         {
-            string server = "localhost";
-            string database = "chattmob";
-            string uid = "root";
-            string password = "T0mgr33n";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
-                               "PASSWORD=" + password + ";";
-            connection = new MySqlConnection(connectionString);
-            cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", connection);
+            cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", _connect.Initialize());
 
             try
             {

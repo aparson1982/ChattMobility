@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace ChattMob
 {
-    internal class DBConnect
+    public class DBConnect
     {
         private MySqlConnection connection;
         private string server;
@@ -26,7 +26,7 @@ namespace ChattMob
             Initialize();
         }
 
-        public void Initialize()
+        public MySqlConnection Initialize()
         {
             server = "localhost";
             database = "chattmob";
@@ -36,6 +36,7 @@ namespace ChattMob
             connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" +
                                "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
+            return connection;
         }
 
         public bool OpenConnection()
