@@ -18,6 +18,7 @@ namespace ChattMob
         public CMServiceManager()
         {
             InitializeComponent();
+
             loadTable();
 
             tabControl1.DrawItem += new DrawItemEventHandler(tabControl1_DrawItem);
@@ -57,8 +58,9 @@ namespace ChattMob
 
         private void loadTable()
         {
-            _cmdDataBase = new MySqlCommand("SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;", _connect.Initialize());
-
+            _cmdDataBase = new MySqlCommand(
+                "SELECT DISTINCT LAST_NAME, FIRST_NAME, EMAIL, PHONE FROM chattmob.customer_table ORDER BY LAST_NAME;",
+                _connect.Initialize());
             try
             {
                 _sda = new MySqlDataAdapter();
